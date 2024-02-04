@@ -17,7 +17,8 @@ defmodule Peek.Events do
       [%Event{}, ...]
 
   """
-  def list_events do
+
+  def list_events(filter \\ nil) do
     Repo.all(Event)
   end
 
