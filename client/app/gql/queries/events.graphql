@@ -6,3 +6,11 @@ query {
     duration
   }
 }
+
+# will define mutation here
+
+# mutation CreateBooking($booking: SingleBooking!, $eventId: Integer!) {
+#   events (booking: $booking, eventId: $eventId) {
+#     id
+#   }
+# }

@@ -17,9 +17,11 @@ defmodule Peek.Events do
       [%Event{}, ...]
 
   """
+
   def list_events do
     Repo.all(Event)
   end
+
 
   @doc """
   Create a new Event.
@@ -42,4 +44,28 @@ defmodule Peek.Events do
     Doesn't need to raise an error.
   """
   def get_event(id), do: Repo.get(Event, id)
+
+  # these are simple get by exact match queries
+  # what about searching for a period?
+  # ex. events with a duration between 45-60
+  # ex. events starting between 01/05-02/05
+
+  def get_event_by_title(title) do
+    query = from e in Event,
+    where: ilike(e.title, ^title)
+    Repo.all(query)
+  end
+
+  def get_event_by_duration(duration) do
+    query = from e in Event,
+    where: e.duration == ^duration
+    Repo.all(query)
+  end
+
+  # nice to have - allow for date times of different formats
+  def get_event_by_start(start) do
+    query = from e in Event,
+    where: e.start == ^start
+    Repo.all(query)
+  end
 end

@@ -1,10 +1,10 @@
 {{page-title "Index"}}
 <div>
-  <h2>
-    Welcome!
-  </h2>
-  {{#each @model as |item|}}
-    {{item.id}}-{{item.title}}-{{item.start}}<br />
+<select id="monthDropdown" {{on "change" this.navigateToCalendar}}>
+  <option value="">Select a month</option>
+  {{#each this.months as |month|}}
+    <option value={{month.name}} data-days={{month.days}}>{{month.name}}</option>
   {{/each}}
+</select>
 </div>
 {{outlet}}

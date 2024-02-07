@@ -1,0 +1,9 @@
+{{!-- {{#each this.daysInMonth as |day|}}
+  <LinkTo @route="day" @day={{day.number}} @month={{this.month}}>
+    <div class="day {{if day.isWeekend 'weekend'}}">{{day.number}}</div>
+  </LinkTo>
+{{/each}} --}}
+
+{{#each this.daysInMonth as |day|}}
+  <div class="day {{if day.isWeekend 'weekend'}}">{{day.number}}</div>
+{{/each}}
