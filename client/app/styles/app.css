@@ -1,1 +1,27 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+.day {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.day:hover {
+  background-color: #e0e0e0;
+}
+
+.weekend {
+  background-color: #f0f0f0;
+}

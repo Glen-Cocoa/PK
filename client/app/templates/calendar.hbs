@@ -1,7 +1,8 @@
 <div class="jumbo">
-  <h2>Calendar</h2>
-  <p>
-    blah
-  </p>
-  <LinkTo @route="day" class="button">DAY</LinkTo>
+    <h2>Calendar</h2>
+    <div class="calendar">
+        <Month @month="January" @month_length=31 @start_day=1></Month>
+
+    </div>
+    <LinkTo @route="day" class="button">DAY</LinkTo>
 </div>
