@@ -6,3 +6,5 @@ query {
     duration
   }
 }
+
+# will define mutation here
