@@ -32,6 +32,14 @@ defmodule PeekWeb.Schema.Schema do
     end
   end
 
+  mutation do
+    @desc "add a booking to an existing event"
+      field :events, :event do
+        arg :booking, :single_booking
+        arg :event_id, :id
+        resolve(&BookingResolver.add_booking/3)
+      end
+    end
   #
   # Event Object
   #
@@ -48,6 +56,11 @@ defmodule PeekWeb.Schema.Schema do
   # Booking Object
   #
   object :booking do
+    field :first_name, non_null(:string)
+    field :last_name, non_null(:string)
+  end
+
+  input_object :single_booking do
     field :first_name, non_null(:string)
     field :last_name, non_null(:string)
   end

@@ -21,6 +21,24 @@ defmodule PeekWeb.SchemaTest do
     {:ok, event: event}
   end
 
+  test "creates a booking", context do
+    %{conn: conn, event: event} = context
+    query = """
+    mutation {
+      events (booking: {first_name: "Joe", last_name: "Dirt"}, eventId: 1) {
+        id
+      }
+    }
+    """
+    conn = post(conn, "/api", query: query)
+
+    assert json_response(conn, 200) == %{
+             "data" => %{
+               "events" => %{"id" => "57"}
+             }
+           }
+  end
+
   test "returns all events", context do
     %{conn: conn, event: event} = context
     conn = post(conn, "/api", query: @query)
