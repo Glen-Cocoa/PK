@@ -62,9 +62,10 @@ defmodule Peek.Events do
     Repo.all(query)
   end
 
+  # nice to have - allow for date times of different formats
   def get_event_by_start(start) do
     query = from e in Event,
-    where: e.start == ^ start
+    where: e.start == ^start
     Repo.all(query)
   end
 end
