@@ -12,9 +12,22 @@ defmodule PeekWeb.Schema.Schema do
   #
   # Queries
   #
+
+  # possible to have a single query object arg?
+  # ex. events(filter: {
+  # id: *,
+  # title: "skydiving",
+  # duration: "30-60",
+  # start: "01/01/2024-01/06/2024
+  # })
+
   query do
-    @desc "Get a list of events"
+    @desc "Get a list of events with the option to search/query"
     field :events, list_of(:event) do
+      arg :id, :integer
+      arg :title, :string
+      arg :duration, :integer
+      arg :start, :naive_datetime
       resolve(&EventResolver.events/3)
     end
   end
