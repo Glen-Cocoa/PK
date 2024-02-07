@@ -7,5 +7,5 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('calendar'), this.route('day');
+  this.route('calendar'), this.route('day', {path: '/day/:day/:month'});
 });
